@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="../static/signin.css">
+</head>
+<body>
+    <main>
+        <div class="signin">
+            <h1>Sign in</h1>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages%}
+                {% if category == 'error' %}
+                    <div class="alert__error" role="alert">
+                        {{ message }}
+                        <button class="close1" type="button" data-dismiss="alert">OK</button>
+                    </div>
+                {% else %}
+                    <div class="alert__success" role="alert">
+                        {{ message }}
+                        <button class="close2" type="button" data-dismiss="alert"><a href="/login">OK</a></button>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {% block content %}
+            <form method="POST">
+                <input type="text" name="username" placeholder="username" required>
+                <span class="signin__input-border"></span>
+                <input type="email" name="email" placeholder="email" required>
+                <span class="signin__input-border"></span>
+                <input type="password" name="password" placeholder="password" required>
+                <span class="signin__input-border"></span>
+                <button type="submit">Sign in</button>
+                <a class="login__signin" href="/login">Já tem conta? Logue!</a>
+            </form>
+            {% endblock %}
+        </div>      
+    </main>
+    
+    <!-- link for ok button -->
+    <script src="../static/enter_messages.js"></script>
+</body>
+</html>

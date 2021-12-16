@@ -1,0 +1,116 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+header{
+    background: linear-gradient(120deg, #1e7de9, #167cc0);
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+header .logo{
+    color: white;
+    font-size: 40px;
+    margin-left: 30px;
+}
+
+header .menu__section nav ul{
+    list-style: none;
+    display: flex;
+    font-size: 20px;
+}
+
+header .menu__section nav ul li{
+    padding: 7px;
+    margin-right: 15px;
+    background-color: transparent;
+}
+
+header .menu__section nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+/* RESPONSIVE MENU CSS */
+@media (max-width: 540px){
+    nav{
+        display: none;
+    }
+    .one, .two, .three{
+        background-color: white;
+        height: 5px;
+        width: 100%;
+        margin: 6px auto;
+
+        transition-duration: 0.3s;
+    }
+    
+    .menu__toggle{
+        width: 40px;
+        height: 30px;
+        margin-right: 10px;
+    }
+
+    /* Fullscreen menu*/
+    .menu__section.on{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(120deg, #1e7de9, #167cc0);
+        height: 100vh;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu__section.on:hover{
+        background: linear-gradient(120deg, #1e7de9, #167cc0);
+    }
+
+    .menu__section.on nav{
+        display: block;
+    }
+
+    .menu__section.on .menu__toggle{
+        position: absolute;
+        right: 0;
+        top: 15px;
+        margin-right: 28px;
+        margin-top: 10px;
+    }
+
+    .menu__section.on .menu__toggle .one{
+        transform: rotate(45deg) translate(9px, 7px);
+    }
+
+    .menu__section.on .menu__toggle .two{
+        opacity: 0;
+    }
+
+    .menu__section.on .menu__toggle .three{
+        transform: rotate(-45deg) translate(8px, -7px);
+    }
+
+    .menu__section.on nav ul{
+        display: block;
+        text-align: center;
+    }
+
+    .menu__section.on nav ul li{
+        background-color: transparent;
+    }
+
+    .menu__section.on nav ul a{
+        transition-duration: 0.5s;
+        font-size: 2rem;
+        display: block;
+        line-height: 4rem;
+    }
+}

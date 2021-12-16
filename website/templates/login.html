@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/login.css">
+</head>
+<body>
+    <main>
+        <div class="login">
+            <h1>Login</h1>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages%}
+                {% if category == 'error' %}
+                    <div class="alert__error" role="alert">
+                        {{ message }}
+                        <button class="close1" type="button" data-dismiss="alert">OK</button>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <form method="POST">
+                <input type="text" name="username" placeholder="username" required>
+                <span class="login__input-border"></span>
+                <input type="password" name="password" placeholder="password" required>
+                <span class="login__input-border"></span>
+                <button type="submit">Login</button>
+                <a class="login__reset" href="/forgot">Esqueci a senha</a>
+                <a class="login__signin" href="/signin">Não tem conta? Cadastre-se!</a>
+            </form>
+        </div>      
+    </main>
+    <!-- link for ok button -->
+    <script src="../static/enter_messages.js"></script>
+</body>
+</html>
